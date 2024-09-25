@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали заказа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border: 1px solid #ccc;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {{if .error}}
+        <p style="color: red;">{{.error}}</p>
+    {{else}}
+    <h1>Детали заказа</h1>
+    <pre>{{.}}</pre>
+    {{end}}
+</body>
+</html>
