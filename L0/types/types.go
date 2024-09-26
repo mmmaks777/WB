@@ -54,7 +54,7 @@ type Item struct {
 
 type Order struct {
 	gorm.Model
-	OrderUID          string   `gorm:"column:order_uid;unique" json:"order_uid" validate:"required"`
+	OrderUID          string   `json:"order_uid" validate:"required"`
 	TrackNumber       string   `json:"track_number" validate:"required"`
 	Entry             string   `validate:"required"`
 	Delivery          Delivery `gorm:"embedded;embeddedPrefix:delivery_" validate:"required"`

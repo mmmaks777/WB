@@ -34,9 +34,10 @@ func kafkaSubscribe(ctx context.Context) {
 	}
 
 	r := kafka.NewReader(kafka.ReaderConfig{
-		Brokers: []string{"localhost:9092"},
-		Topic:   "orders",
-		GroupID: "order-service",
+		Brokers:     []string{"localhost:9092"},
+		Topic:       "orders",
+		GroupID:     "order-service",
+		StartOffset: kafka.LastOffset,
 	})
 	defer r.Close()
 
@@ -61,6 +62,13 @@ func kafkaSubscribe(ctx context.Context) {
 		err = t.Validate.Struct(order)
 		if err != nil {
 			log.Println("error of validation: ", err)
+			continue
+		}
+
+		_, ok := cache[order.OrderUID]
+		if ok {
+			log.Println("error: dublicate key")
+			fmt.Println(order.OrderUID)
 			continue
 		}
 
