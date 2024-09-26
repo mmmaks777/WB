@@ -34,10 +34,9 @@ func kafkaSubscribe(ctx context.Context) {
 	}
 
 	r := kafka.NewReader(kafka.ReaderConfig{
-		Brokers:     []string{"localhost:9092"},
-		Topic:       "orders",
-		GroupID:     "order-service",
-		StartOffset: kafka.LastOffset,
+		Brokers: []string{"localhost:9092"},
+		Topic:   "orders",
+		GroupID: "order-service",
 	})
 	defer r.Close()
 
