@@ -21,7 +21,9 @@
 </head>
 <body>
     {{if .error}}
-        <p style="color: red;">{{.error}}</p>
+        <h1 style="color: red;">{{.error}}</h1>
+        <p>{{.errMsg}}</p>
+        <p>Order Id: {{.orderId}}</p>
     {{else}}
     <h1>Детали заказа</h1>
     <pre>{{.}}</pre>

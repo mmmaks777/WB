@@ -1,0 +1,10 @@
+kafka:
+  brokers:
+    - "localhost:9092"
+  topic: "orders"
+  groupid: "order-service"
+database:
+  host: "localhost"
+  port: 5432
+  user: "Maksimka"
+  name: "wb_l0"
