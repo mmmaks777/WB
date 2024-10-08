@@ -37,7 +37,7 @@ func main() {
 	})
 	defer writer.Close()
 
-	messege, err := os.ReadFile("/Users/Maksimka/Desktop/s21_projects/WB/L0/testdata/model.json")
+	messege, err := os.ReadFile("testdata/model.json")
 	if err != nil {
 		logger.Fatal("error of reading json file: ", zap.Error(err))
 	}
